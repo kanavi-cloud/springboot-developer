@@ -11,12 +11,15 @@ public class HelloWorldController {
     public String hello(){
         return "Hello World";
     }
-    //    @GetMapping("/student")
-//    public Student getStudent(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName){
-//        return new Student(firstName, lastName);
-//    }
+    @GetMapping("/student")
+    public Student getStudentByParam(@RequestParam("firstName") String firstName,
+                                     @RequestParam("lastName") String lastName){
+        return new Student(firstName, lastName);
+    }
+
     @GetMapping("/student/{firstName}/{lastName}")
-    public Student getStudent(@PathVariable("firstName") String firstName,@PathVariable("lastName") String lastName){
+    public Student getStudentByPath(@PathVariable("firstName") String firstName,
+                                    @PathVariable("lastName") String lastName){
         return new Student(firstName, lastName);
     }
 }
